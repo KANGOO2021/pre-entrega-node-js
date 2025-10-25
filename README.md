@@ -2,7 +2,7 @@
 
 ## Descripción
 
-Es como un Microservicio en Node.js que interactúa con la API de **FakeStore** para gestionar productos. Permite consultar, crear y eliminar productos desde la terminal usando comandos simples.
+Microservicio en Node.js que interactúa con la API de **FakeStore** para gestionar productos. Permite consultar, crear y eliminar productos desde la terminal usando comandos simples.
 
 ---
 
