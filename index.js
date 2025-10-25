@@ -61,6 +61,20 @@ try {
     console.log(data);
   }
 
+  // DELETE - Eliminar producto
+  else if (methodUpper === "DELETE" && resourceLower.startsWith("products/")) {
+    const id = parseInt(resourceLower.split("/")[1]);
+    if (isNaN(id) || id <= 0) {
+      console.error("⚠️ ID inválido. Usa un número mayor a 0.");
+      process.exit(1);
+    }
+
+    const response = await fetch(`${BASE_URL}/${id}`, { method: "DELETE" });
+    const data = await response.json();
+    console.log("🗑️ Producto eliminado:");
+    console.log(data);
+  }
+
   // Comando desconocido
   else {
     console.error("❌ Comando no reconocido o incompleto.");
