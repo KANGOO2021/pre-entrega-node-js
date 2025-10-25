@@ -37,6 +37,30 @@ try {
     console.log(data);
   }
 
+  // POST - Crear nuevo producto
+  else if (methodUpper === "POST" && resourceLower === "products") {
+    const [title, price, category] = params;
+
+    if (!title || !price || !category) {
+      console.error(
+        "❌ Faltan parámetros. Uso: npm run start POST products <title> <price> <category>"
+      );
+      process.exit(1);
+    }
+
+    const newProduct = { title, price: Number(price), category };
+
+    const response = await fetch(BASE_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newProduct),
+    });
+
+    const data = await response.json();
+    console.log("✅ Producto creado con éxito:");
+    console.log(data);
+  }
+
   // Comando desconocido
   else {
     console.error("❌ Comando no reconocido o incompleto.");
